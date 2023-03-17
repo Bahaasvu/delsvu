@@ -1,0 +1,45 @@
+<div class="login d-flex justify-content-center align-items-center m-auto">
+    
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <div class="overlay"></div>
+            <img src="../../../../assets/desola-lanre-ologun-zYgV-NGZtlA-unsplash.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+         <div class="h-100 d-flex align-items-center justify-content-center w-100">
+            <div class="box w-75">
+                <h2>مستخدم جديد </h2>
+             
+        
+                <form [formGroup]="registerForm">
+                    <mat-form-field  class="form-control">
+                        <input class="form-control" matInput formControlName="username" placeholder="username">
+                        <mat-error>* اسم المستخدم</mat-error>
+                    </mat-form-field>
+                    <mat-form-field  class="form-control">
+                        <input class="form-control" matInput formControlName="email" placeholder="email">
+                        <mat-error>* الايميل</mat-error>
+                    </mat-form-field>
+                    <mat-form-field  class="form-control">
+                        <input class="form-control" matInput formControlName="password" type="password" placeholder="password">
+                        <mat-error>* كلمة المرور</mat-error>
+        
+                    </mat-form-field>
+                    <mat-form-field  class="form-control">
+                        <input class="form-control" matInput formControlName="confirmPassword" type="password" placeholder="confirm password">
+                        <mat-error>* تأكيد كلمة المرور</mat-error>
+                        <mat-hint *ngIf="registerForm.hasError('notSame')"></mat-hint>
+                    </mat-form-field>
+                </form>
+                <div class="d-flex justify-content-center">
+                    <button mat-raised-button color="warn" [disabled]="registerForm.invalid" (click)="createAccount()">Create Account</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a routerLink="/login">هل لديك حساب ؟ </a>
+                </div>
+            </div>
+         </div>
+        </div>
+    </div>
+ 
+</div>

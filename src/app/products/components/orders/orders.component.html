@@ -1,0 +1,32 @@
+
+<div class="cartBox">
+    <h1 class="text-danger">الطلبات الجارية</h1>
+    <table class="table table-striped">
+        <thead style="text-align: center;">
+            <tr>
+                <th></th>
+                <th>الحالة</th>
+                <th>الموظف</th>               
+                <th >رقم الموظف</th>
+                <th>تاريخ الارسال</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders" >
+                <td></td>
+                <td>{{item.orederstatus}}</td>
+                <td>{{item.orderEmpName}}</td>
+                <td>{{item.orderEmpPhone}}</td>
+                <td>{{item.oredersenddate}}</td>
+                <td></td>
+            </tr>
+            
+        </tbody> 
+        
+    </table>
+    <div class="text-center w-100" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    
+</div>

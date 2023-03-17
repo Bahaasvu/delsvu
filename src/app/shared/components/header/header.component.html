@@ -1,0 +1,16 @@
+
+<nav *ngIf="loading">
+    <div class="container" >
+        <div class="content">
+            <h2 class="logo" >عالندهة</h2>
+            <ul>
+                <li routerLink="/stores/{{catId}}"(click)="ca()"> المحلات</li>
+                <li routerLink="/products/{{storeId}}"(click)="st()"> المنتجات</li>
+                <li routerLink="/cart" > السلة</li>
+                <li routerLink="/orders" > طلباتي</li>
+                <li routerLink="auth/login" (click)="logout()" > خروج</li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

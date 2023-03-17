@@ -1,0 +1,23 @@
+<div class="box mt-5">
+    <div class="row" *ngIf="!loading" >
+        <div class="col-md-3 col-sm-12" *ngFor="let item of stores" >     
+            <div class="item"(click)="asd(item.Id)" >
+                <div>
+                    <img src="http://localhost:61930/Uploads/{{item.StoreImage}}" alt="">
+                    <div class="body">
+                        <h4>{{item.StoreName}}</h4>
+                        <p>{{item.StoreDescription}}</p>
+                    </div>
+                </div>
+               
+                <div class="px-3 mb-2 d-flex justify-content-between align-datas-center ">
+                    <span>{{item.StoreAddress}}</span>
+                    <span>{{item.StorePhone}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center w-100" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+
+<div class="cartBox">
+    <h1 class="text-danger">سلة المشتريات</h1>
+  <div class="headCart">
+    <p class="lead">لديك <label class="text-danger ">{{cartProducts.length}}</label> منتجات في سلتك</p>
+    <span class="text-danger card-header" (click)="clearCart()">إفراغ السلة</span>
+  </div>
+    <table class="table table-striped">
+        <thead style="text-align: center;">
+            <tr>
+                <th></th>
+                <th>الاسم</th>
+                <th>السعر</th>
+                <th style="width: 25%;">الكمية</th>
+                <th>الاجمالي</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartProducts; let index = index" >
+                <td><img src="http://localhost:61930/Uploads/{{item.item.CommdityImage}}" alt=""></td>
+                <td>{{item.item.CommdityName}}</td>
+                <td>{{item.item.CommdityCost}} ل.س</td>
+                <td>
+                    <div class="quantity">
+                        <button class="btn btn-dark" (click)="addAmount(index)" >+</button>
+                        <input class="form-control"  type="number" (change)="detectChange()" [(ngModel)]="item.quantity" min="1">
+                        <button class="btn btn-dark" (click)="minsAmount(index)" >-</button>
+                    </div>
+                </td>
+                <td>{{item.item.CommdityCost * item.quantity}} ل.س</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteProduct(index)" >حذف</button>
+                </td>
+            </tr>
+            <tr>
+                
+                <td>
+                    العنوان
+                </td>
+                <td colspan="5">
+                    <div class="quantity">
+                        <input class="form-control" [(ngModel)]="address">
+                    </div>
+                </td>
+            </tr>
+        </tbody> 
+        <tfoot>
+            
+            <tr>
+                
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>الاجمالي : {{total}} ل.س</th>
+                <th><button class="btn btn-success" (click)="addCart()">اطلب الآن</button></th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>
+<div class="alert alert-success" role="alert" *ngIf="success"><strong>تم الارسال بنجاح</strong></div>

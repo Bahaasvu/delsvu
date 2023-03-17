@@ -1,0 +1,22 @@
+<div class="box">
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-5 col-sm-12">
+            <img src="http://localhost:61930/Uploads/{{data[0].cimage}}" alt="sas">
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <div class="info">
+                <ul class="list-unstyled">
+                    <li><strong>الاسم : </strong>{{data[0].cname}}</li>
+                    <li><strong>الوصف : </strong>{{data[0].cdesc}}</li>
+                    <li><strong>العدد المتوافر : </strong>{{data[0].ccount}}</li>
+                    <li><strong>السعر : </strong>{{data[0].ccost}} ل.س</li>
+                    <li><strong>المحل : </strong>{{data[0].cst}}</li>
+                    <li><strong>التصنيف : </strong>{{data[0].ccat}} </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+</div>
